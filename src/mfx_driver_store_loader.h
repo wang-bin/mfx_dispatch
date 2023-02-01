@@ -26,7 +26,7 @@
 #include <devguid.h>
 
 #include "mfx_dispatcher_defs.h"
-#ifdef __MINGW32__
+#ifdef _WIN32
 #ifndef CM_GETIDLIST_FILTER_PRESENT
 #define CM_GETIDLIST_FILTER_PRESENT            (0x00000100)
 #endif
