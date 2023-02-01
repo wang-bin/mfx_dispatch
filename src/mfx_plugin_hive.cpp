@@ -24,6 +24,11 @@
 #include "mfx_dispatcher_log.h"
 #include "mfx_load_dll.h"
 
+#if !(__cpp_exceptions + 0)
+# define try
+# define catch(...)  if (false)
+#endif
+
 #define TRACE_HIVE_ERROR(str, ...) DISPATCHER_LOG_ERROR((("[HIVE]: " str), __VA_ARGS__))
 #define TRACE_HIVE_INFO(str, ...) DISPATCHER_LOG_INFO((("[HIVE]: " str), __VA_ARGS__))
 #define TRACE_HIVE_WRN(str, ...) DISPATCHER_LOG_WRN((("[HIVE]: " str), __VA_ARGS__))
@@ -487,5 +492,3 @@ MFX::MFXDefaultPlugins::MFXDefaultPlugins(mfxVersion currentAPIVersion, MFX_DISP
         TRACE_HIVE_INFO("GetFileAttributesW() unable to locate default plugin dll named %S\n", libModuleName);
     }
 }
-
-

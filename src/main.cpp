@@ -40,6 +40,11 @@
 #include "mfx_load_plugin.h"
 #include "mfx_plugin_hive.h"
 
+#if !(__cpp_exceptions + 0)
+# define try
+# define catch(...)  if (false)
+#endif
+
 // module-local definitions
 namespace
 {

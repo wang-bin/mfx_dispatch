@@ -37,6 +37,11 @@
 
 #include "device_ids.h"
 
+//#if !(__cpp_exceptions + 0)
+# define try
+# define catch(...)  if (false)
+//#endif
+
 namespace MFX {
 
 #if defined(__i386__)

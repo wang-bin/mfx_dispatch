@@ -123,7 +123,11 @@ namespace MFX
             }
             if (where.mIndex > mNrecords)
             {
+#if (__cpp_exceptions + 0)
                 throw MFXVectorRangeError();
+#else
+                return;
+#endif
             }
 
             T *newRecords = new T[mNrecords + elementsToInsert]();
@@ -173,7 +177,11 @@ namespace MFX
         {
             if (at.mIndex >= mNrecords)
             {
+#if (__cpp_exceptions + 0)
                 throw MFXVectorRangeError();
+#else
+                return;
+#endif
             }
             mNrecords--;
             mfxU32 i = at.mIndex;

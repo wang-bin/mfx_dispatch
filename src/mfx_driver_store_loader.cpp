@@ -24,6 +24,11 @@
 #include "mfx_dispatcher_log.h"
 #include "mfx_load_dll.h"
 
+#if !(__cpp_exceptions + 0)
+# define try
+# define catch(...)  if (false)
+#endif
+
 namespace MFX
 {
 
